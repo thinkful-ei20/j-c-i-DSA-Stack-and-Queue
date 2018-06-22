@@ -1,11 +1,14 @@
 'use strict';
 
 const Queue = require('./queue');
-const myQueue = new Queue();
+const starTrekQ  = new Queue();
 
-myQueue.enqueue('A');
-myQueue.enqueue('B');
-myQueue.enqueue('C');
+starTrekQ.enqueue('Kirk');
+starTrekQ.enqueue('Spock');
+starTrekQ.enqueue('Uhura');
+starTrekQ.enqueue('Sulu');
+starTrekQ.enqueue('Checkov');
+
 
 function display(queue){
   let currNode = queue.first;
@@ -15,4 +18,12 @@ function display(queue){
   }
 }
 
-display(myQueue);
+function peek(queue){
+  return queue.first ? queue.first.value : null;  
+}
+
+
+// display(starTrekQ);
+// console.log(peek(starTrekQ));
+starTrekQ.dequeue();
+display(starTrekQ);
