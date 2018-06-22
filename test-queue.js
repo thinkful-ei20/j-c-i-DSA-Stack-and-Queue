@@ -1,5 +1,5 @@
 'use strict';
-
+const Stack = require('./stack');
 const Queue = require('./queue');
 const starTrekQ  = new Queue();
 
@@ -26,4 +26,31 @@ function peek(queue){
 // display(starTrekQ);
 // console.log(peek(starTrekQ));
 starTrekQ.dequeue();
-display(starTrekQ);
+// display(starTrekQ);
+
+class StackQueue{
+  constructor(){
+    this.inbox = new Stack();
+    this.outbox = new Stack();
+  }
+
+  enqueue(data){
+    this.inbox.push(data);
+  }
+
+  dequeue(){
+    if(!this.outbox.top){
+      while(this.inbox.top){
+        this.outbox.push(this.inbox.pop())
+      }
+    }
+    return this.outbox.pop();
+  }
+}
+
+let test = new StackQueue();
+test.enqueue('hello');
+test.enqueue('hello2');
+console.log(test.dequeue());
+console.log(test);
+// display(test.inbox)
