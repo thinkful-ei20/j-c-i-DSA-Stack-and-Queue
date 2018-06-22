@@ -54,3 +54,4 @@ test.enqueue('hello2');
 console.log(test.dequeue());
 console.log(test);
 // display(test.inbox)
+
