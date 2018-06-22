@@ -28,4 +28,7 @@ starTrek.push('Scotty');
 
 // myStack.pop();
 // display(myStack);
-console.log(peek(starTrek));
+// console.log(display(starTrek));
+starTrek.pop();
+starTrek.pop();
+console.log(display(starTrek));
