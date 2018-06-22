@@ -64,17 +64,24 @@ function matchParen(input) {
   let stack = new Stack();
   for (let i = 0; i < input.length; i++) {
     let s = input[i];
-
     if (s === '(') {
+      console.log(`${s} found at ${i}`);
       stack.push(s);
     }
     else if (s === ')') {
-      if (stack.length === 0) {
-        return i;
+      console.log(`${s} found at ${i}`);
+      if (stack.top === null) {
+        return i + 1;
       }
-      let top = stack.pop();
+      else {
+        let top = stack.pop();
+        if (!top.value === '(') {
+          return i + 1;
+        }
+      }
     }
   }
+  return 0;
 }
 
 console.log('*** MATCH PAREN *** ');
@@ -82,4 +89,5 @@ output = matchParen(null);
 console.log(output);
 output = matchParen('');
 console.log(output);
-output = matchParen('(x + 1)(y + 2');
+output = matchParen('(x + 1))(y + 2');
+console.log(output);
